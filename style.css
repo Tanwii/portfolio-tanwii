@@ -1,0 +1,242 @@
+/*LIMPANDO PADRÕES DO NAVEGADOR*/
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    
+}
+/*DESIGN SYSTEM*/
+:root{
+--fonte-padrao: 'poppins', 'sans-serif';
+--cor-primaira: #BF399C;
+--texto-comum: #1d0a18;
+--destaque-texto: #F2E96D;
+--cor-backgrond: #F2C46D;
+--espaco-padrao: 20px;
+--espaco-pequeno: 10px;
+--cor-bordas: #ffe1ab;
+--laranja: #F29E6D;
+
+}
+/*REGRAS PADRÕES*/
+body{
+    font-family: var(--fonte-padrao);
+    box-sizing: border-box;
+    background-color: var(--cor-backgrond);
+    
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-area: sobre-mim;
+}
+/*GRID*/
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: auto;
+    grid-template-areas: 
+    "header"
+    "sobre-mim"
+    "skills"
+    "projetos"
+    "contato"
+    "footer";
+    
+}
+/*SOBRE MIM*/
+.header{
+    grid-area: header;
+    background-color: var(--cor-primaira);
+    padding: var(--espaco-padrao);
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    
+}
+nav a{
+    color: #F2E96D;
+    font-weight: bold;
+}
+#sobre-mim{
+    grid-area: sobre-mim;
+    background-color: #401234;
+    padding: var(--espaco-padrao);
+    color: var(--destaque-texto);
+    font-size: larger; 
+}
+#sobre-mim h1{
+    text-transform: uppercase;
+}
+#sobre-mim h3{
+    font-weight: 200;
+}
+.texto-sobre{
+    padding: var(--espaco-padrao);
+}
+#sobre-mim img{
+    width: 90%;
+    height: auto;
+    border-radius: 30%;
+    border: 5px solid var(--destaque-texto); 
+}
+.fotinha{
+    display: flex;
+    justify-content: center;
+    padding: var(--espaco-padrao);
+}
+#skills{
+    grid-area: skills;
+    box-sizing: border-box;
+    padding: var(--espaco-padrao);
+    background-color: var(--cor-bordas);
+    border: 10px solid var(--cor-backgrond);
+    color: var(--texto-comum);
+}
+.ferramentas img{
+    padding: var(--espaco-padrao);
+    width: 80%;
+    height: auto;
+}
+/*parte das skills*/
+#skills div{
+    display: flex;
+    justify-content: center;
+    padding: var(--espaco-padrao);
+}
+.ferramentas{
+    display: flex;
+    justify-content: center;
+    padding: var(--espaco-padrao);
+}
+/*PROJETOs*/
+#projetos{
+    grid-area: projetos;
+    box-sizing: border-box;
+    background-color: #ffe1ab;
+    border: 10px solid var(--cor-backgrond);
+    padding: var(--espaco-padrao);
+}
+.ft-projeto img{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+.ft-projeto{
+    display: flex;
+    justify-content: center;
+    padding: var(--espaco-pequeno);
+}
+.botao-projeto{
+    display: flex;
+    justify-content: center;
+    padding: var(--espaco-pequeno);
+}
+/*CONTATO AREA*/
+#contato{
+    grid-area: contato;
+    box-sizing: border-box;
+    padding: var(--espaco-padrao);
+    background-color: #ffe1ab;
+    border: 10px solid var(--cor-backgrond);
+}
+/*estilização do botão*/
+input[type="button"]{
+    all: unset;
+    cursor: pointer;
+    background-color: var(--cor-primaira);
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #1d0a18;
+    color: var(--texto-comum);
+    font-weight: 400;
+}
+input[type="button"]:hover{
+    background-color: #59d6da;
+}
+#contato div{
+    padding: var(--espaco-padrao);
+}
+.botoes{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: var(--espaco-padrao);
+}
+/*FOOTER AREA*/
+footer{
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    padding: var(--espaco-pequeno);
+}
+/*RESPONSIVIDADE PARA DESKTOP*/
+@media(min-width:1024px){
+    .grid-container{
+        display: grid;
+        grid-template-areas: 
+            "header header "
+            "sobre-mim sobre-mim"
+            "projetos projetos"
+            "contato skills"
+            "footer footer";
+            grid-template-columns: 1fr 1fr;
+    }
+    /*ajustando imagens para desk*/
+    .fotinha{
+        width: 30%;
+        height: auto;
+    }
+    .ferramentas{
+        width: 40%;
+        height: auto;
+        padding: var(--espaco-padrao);
+        
+    }
+    .ft-projeto{
+        width: 40%;
+        height: auto;
+        padding: var(--espaco-pequeno);
+    }
+   .ft-projeto img{
+    display: flex;
+    justify-content: center;
+}
+    /*botoes*/
+    .botao-projeto{
+        display: flex;
+        justify-content: left;
+        gap: 10px;
+    
+    }
+    .botoes{
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+.header{
+    grid-area: header;
+}
+.main{
+    grid-area: sobre-mim;
+}
+.skills{
+    grid-area: skills;
+}
+.contato{
+    grid-area: contato;
+}
+.footer{
+    grid-area: footer;
+}
+      
+    
+}
